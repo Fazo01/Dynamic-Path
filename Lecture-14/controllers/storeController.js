@@ -36,3 +36,12 @@ exports.getFavouriteList=(req, res, next) => {
   );
   }
 // exports.registeredHomes = registeredHomes;
+
+exports.getHomeDetails = (req, res, next) => {//Adding module
+  const homeId=req.params.homeId;//to directly used all variable
+  console.log("At home details page", homeId)
+  res.render("store/home-detail", {
+      pageTitle: "Home Detail",
+      currentPage: "Home",
+    }) 
+};

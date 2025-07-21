@@ -8,5 +8,6 @@ storeRouter.get("/",Homecontroller.getIndex)
 storeRouter.get("/homes",Homecontroller.gethome)
 storeRouter.get("/bookings",Homecontroller.getBookings)
 storeRouter.get("/favourites",Homecontroller.getFavouriteList)
+storeRouter.get("/homes/:homeId",Homecontroller.getHomeDetails)
 
 module.exports=storeRouter

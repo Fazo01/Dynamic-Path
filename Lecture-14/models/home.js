@@ -17,6 +17,7 @@ module.exports = class Home {
   //To save Files
   save() {
     //Write File
+    this.id=Math.random().toString();
     Home.fetchAll((registeredHomes)=>{
       registeredHomes.push(this);
     const homeDataPath = path.join(rootDir,'data', 'home.json');
