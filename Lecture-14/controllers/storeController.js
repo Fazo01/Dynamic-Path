@@ -35,6 +35,11 @@ exports.getFavouriteList=(req, res, next) => {
     }) //Important to change in partial
   );
   }
+
+exports.postAddToFavourite=(req,res,next)=>{
+  console.log("Came to add",req.body)
+  res.redirect('/favourites')
+}
 // exports.registeredHomes = registeredHomes;
 
 exports.getHomeDetails = (req, res, next) => {//Adding module
