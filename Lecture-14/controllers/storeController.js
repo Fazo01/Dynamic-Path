@@ -39,9 +39,16 @@ exports.getFavouriteList=(req, res, next) => {
 
 exports.getHomeDetails = (req, res, next) => {//Adding module
   const homeId=req.params.homeId;//to directly used all variable
-  console.log("At home details page", homeId)
-  res.render("store/home-detail", {
+  Home.findById(homeId,home=>{//
+    if(!home){
+      console.log("home not found")
+      return res.redirect("/homes")
+    }else{
+      res.render("store/home-detail", {
+        home:home,
       pageTitle: "Home Detail",
       currentPage: "Home",
-    }) 
+      }) 
+    }
+    })
 };

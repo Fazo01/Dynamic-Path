@@ -2,6 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const rootDir = require("../utils/pathutils");
 
+    const homeDataPath = path.join(rootDir,'data', 'home.json');
 //Fake database
 let registeredHomes = [];
 
@@ -20,7 +21,6 @@ module.exports = class Home {
     this.id=Math.random().toString();
     Home.fetchAll((registeredHomes)=>{
       registeredHomes.push(this);
-    const homeDataPath = path.join(rootDir,'data', 'home.json');
     fs.writeFile(homeDataPath, JSON.stringify(registeredHomes), error => {
       
     });
@@ -36,6 +36,12 @@ module.exports = class Home {
       }else{
       callback([]);
     }
+    })
+  }
+  static findById(homeId,callback){//I will study this
+    this.fetchAll(homes=>{
+      const homeFound=homes.find((home)=>home.id===homeId);//find method
+      callback(homeFound);
     })
   }
 };
