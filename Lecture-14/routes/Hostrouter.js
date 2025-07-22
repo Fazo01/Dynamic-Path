@@ -6,9 +6,10 @@ const hostController=require("../controllers/hostController.js")//mvc
 hostrouter.get("/add-home",hostController.getAddhome)//mvc
 //to store input data
 // const registeredHomes = [];
-hostrouter.post("/add-home", hostController.gethomeadd)
 hostrouter.get("/host-home-list", hostController.getHostHomes)
 //edit home
 hostrouter.get("/edit-home/:homeId",hostController.getEditHome)
-
+hostrouter.post("/add-home", hostController.postAddHome)
+hostrouter.post("/edit-home",hostController.postEditHome)
+// hostrouter.post("edit-home",hostController.postEditHome)
 module.exports = hostrouter;

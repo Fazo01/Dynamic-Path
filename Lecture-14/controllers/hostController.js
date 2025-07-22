@@ -40,17 +40,27 @@ exports.getHostHomes = (req, res, next) => {
       }) //Important to change in partial
   );
 };
-exports.gethomeadd = (req, res, next) => {
+
+//Editing home
+exports.postAddHome = (req, res, next) => {
   console.log(req.body); //parcel
 
   const { houseName, price, location, rating, photoURL } = req.body;
   const home = new Home(houseName, price, location, rating, photoURL); //Adding Module
   home.save();
+  res.redirect("/host/host-home-list");
+};
 
-  res.render("host/home-added", {
-    pageTitle: "Home Add",
-    currentPage: "HomeAdded",
-  }); //Important to change in partial
+exports.postEditHome = (req, res, next) => {
+  console.log(req.body); //parcel
+
+  const {id, houseName, price, location, rating, photoURL } = req.body;
+  const home = new Home(houseName, price, location, rating, photoURL); //Adding Module
+  home.id=id
+
+  home.save();
+
+  res.redirect("/host/host-home-list");
 };
 
 exports.registeredHomes = registeredHomes;
