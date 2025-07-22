@@ -11,5 +11,6 @@ hostrouter.get("/host-home-list", hostController.getHostHomes)
 hostrouter.get("/edit-home/:homeId",hostController.getEditHome)
 hostrouter.post("/add-home", hostController.postAddHome)
 hostrouter.post("/edit-home",hostController.postEditHome)
-// hostrouter.post("edit-home",hostController.postEditHome)
+//delete
+hostrouter.post("/delete-home/:homeId",hostController.postDeleteHome)
 module.exports = hostrouter;
