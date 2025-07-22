@@ -8,5 +8,7 @@ hostrouter.get("/add-home",hostController.getAddhome)//mvc
 // const registeredHomes = [];
 hostrouter.post("/add-home", hostController.gethomeadd)
 hostrouter.get("/host-home-list", hostController.getHostHomes)
+//edit home
+hostrouter.get("/edit-home/:homeId",hostController.getEditHome)
 
 module.exports = hostrouter;
