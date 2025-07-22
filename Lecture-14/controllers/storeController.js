@@ -52,6 +52,17 @@ exports.postAddToFavourite=(req,res,next)=>{
 }
 // exports.registeredHomes = registeredHomes;
 
+exports.postRemoveFromFavourite = (req, res, next) => {
+  const homeId = req.params.homeId;
+  Favourite.deleteById(homeId, error => {
+    if (error) {
+      console.log('Error while removing from Favourite', error);
+    }
+    res.redirect("/favourites");
+  })
+}
+
+
 exports.getHomeDetails = (req, res, next) => {//Adding module
   const homeId=req.params.homeId;//to directly used all variable
   Home.findById(homeId,home=>{//
