@@ -18,10 +18,10 @@ module.exports = class Home {
   save() {
     //Write File
 
-    Home.fetchAll((registeredHomes) => {
+    Home.find((registeredHomes) => {
       if(this.id){//edit home case
         registeredHomes=registeredHomes.map(home=>
-           home.id===this.id?this:home)
+           home._id===this.id?this:home)
         
       }else{
             this.id = Math.random().toString();
@@ -39,7 +39,7 @@ module.exports = class Home {
   }
 
   //Read File
-  static fetchAll(callback) {
+  static find(callback) {
     const homeDataPath = path.join(rootDir, "data", "home.json");
     fs.readFile(homeDataPath, (err, data) => {
       if (!err) {
@@ -51,15 +51,15 @@ module.exports = class Home {
   }
   static findById(homeId, callback) {
     //I will study this
-    this.fetchAll((homes) => {
-      const homeFound = homes.find((home) => home.id === homeId); //find method
+    this.find((homes) => {
+      const homeFound = homes.find((home) => home._id === homeId); //find method
       callback(homeFound);
     });
   }
   
   static deleteById(homeId, callback) {
-    this.fetchAll(homes => {
-      homes = homes.filter(home => home.id !== homeId);
+    this.find(homes => {
+      homes = homes.filter(home => home._id !== homeId);
       fs.writeFile(homeDataPath, JSON.stringify(homes), callback)
     })
   }

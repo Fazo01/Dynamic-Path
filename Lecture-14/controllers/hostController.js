@@ -31,7 +31,7 @@ exports.getEditHome = (req, res, next) => {
 };
 
 exports.getHostHomes = (req, res, next) => {
-  Home.fetchAll(
+  Home.find(
     (registeredHomes) =>
       res.render("host/host-home-list", {
         registeredHomes: registeredHomes,
@@ -56,7 +56,7 @@ exports.postEditHome = (req, res, next) => {
 
   const {id, houseName, price, location, rating, photoURL } = req.body;
   const home = new Home(houseName, price, location, rating, photoURL); //Adding Module
-  home.id=id
+  home._id=id
 
   home.save();
 
