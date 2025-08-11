@@ -1,0 +1,11 @@
+const express=require("express")
+const storeRouter=express.Router()
+const path=require("path")
+const {registeredHome}=require("../controller/storeController")
+const rootDir=require("../utils/utilPath")
+const storeController=require("../controller/storeController")
+storeRouter.get("/",storeController.getIndex)
+storeRouter.get("/homes",storeController.getHome)
+storeRouter.get("/bookings",storeController.getBookings)
+storeRouter.get("/favourite",storeController.getFavourite)
+module.exports=storeRouter
