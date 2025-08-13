@@ -8,4 +8,5 @@ storeRouter.get("/",storeController.getIndex)
 storeRouter.get("/homes",storeController.getHome)
 storeRouter.get("/bookings",storeController.getBookings)
 storeRouter.get("/favourite",storeController.getFavourite)
+storeRouter.get("/homes/:homeId",storeController.getHomedetails)
 module.exports=storeRouter

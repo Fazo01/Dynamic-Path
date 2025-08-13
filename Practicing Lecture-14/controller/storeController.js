@@ -20,4 +20,10 @@ exports.getFavourite=(req,res,next)=>{
   res.render("store/favourite-list",{pageTitle:"My favourite",registeredHome:registeredHome,currentPage:"favourite"})
   })
 }
+exports.getHomedetails=(req,res,next)=>{
+  const homeId=req.params.homeId
+  Home.fetchAll((registeredHome)=>{
+      res.render("store/home-detail",{pageTitle:"Home List",registeredHome:registeredHome,currentPage:"Home"})
+  })
+}
 exports.registeredHome=registeredHome
