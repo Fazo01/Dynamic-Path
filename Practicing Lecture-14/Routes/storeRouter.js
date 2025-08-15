@@ -9,4 +9,5 @@ storeRouter.get("/homes",storeController.getHome)
 storeRouter.get("/bookings",storeController.getBookings)
 storeRouter.get("/favourite",storeController.getFavourite)
 storeRouter.get("/homes/:homeId",storeController.getHomedetails)
+storeRouter.post("/favourite",storeController.postAddToFavourite)
 module.exports=storeRouter
