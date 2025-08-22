@@ -2,8 +2,10 @@ const express=require("express")
 const path=require("path")
 const rootDir=require("../utils/utilspath")
 const storeRouter=express.Router()
-const {registeredHome}=require("../controllers/hostController")
-storeRouter.get("/",(req,res,next)=>{
-  res.render("home",{registeredHome:registeredHome,pageTitle:"Home",currentPage:"home"})
-})
+
+const storeController=require("../controllers/storeController")
+storeRouter.get("/",storeController.getIndex)
+storeRouter.get("/Homes",storeController.getHomeList)
+storeRouter.get("/bookings",storeController.getBooking)
+storeRouter.get("/favourite",storeController.getFavourite)
 module.exports=storeRouter

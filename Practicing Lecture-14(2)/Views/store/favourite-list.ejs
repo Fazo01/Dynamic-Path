@@ -1,14 +1,13 @@
-<%- include("partials/head") %>
-</head>
+
+  <%- include("../partials/header")%>
 <body>
-  <%- include("partials/nav") %>
+  <%- include("../partials/nav")%>
         <main
       class="container mx-auto bg-white shadow-lg rounded-lg p-8 mt-10 max-w-6xl"
     >
       <h2 class="text-3xl text-red-500 font-bold text-center mb-6">
-        Here are our registered homes:
+        Here are your favourites:
       </h2>
-      
       <div class="flex flex-wrap justify-center gap-6">
         <% registeredHome.forEach(home => {%>
           <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300 w-full max-w-sm">
@@ -32,7 +31,7 @@
             </div>
           </div>
         <%}); %>
-      </div>
+        </div>
     </main>
 </body>
 </html>

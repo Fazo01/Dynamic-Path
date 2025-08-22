@@ -8,4 +8,6 @@ hostRouter.get("/add-home",hostController.getAddHome)
 
 hostRouter.post("/add-home",hostController.getHomeAdd)
 
+hostRouter.get("/host-home-list",hostController.getHostHomeList)
+
 exports.hostRouter=hostRouter
