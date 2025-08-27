@@ -14,7 +14,9 @@ module.exports=class Home{
   }
 
   save(){
+    this.id=Math.random().toString()
     Home.fetchAll((registeredHome)=>{
+      
       registeredHome.push(this)
       fs.writeFile(filepath,JSON.stringify(registeredHome),(error)=>{
         console.log("File Writing Conclude: ",error)
@@ -24,6 +26,12 @@ module.exports=class Home{
   static fetchAll(callback){
     fs.readFile(filepath,(err,data)=>{
       callback(!err?JSON.parse(data):[])
+    })
+  }
+  static findById(homeId,callback){
+    this.fetchAll(homes=>{
+      const homefound=homes.find(home=>home.id===homeId)
+      callback(homefound)
     })
   }
 }

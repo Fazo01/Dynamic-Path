@@ -18,3 +18,17 @@ exports.getFavourite=(req,res,next)=>{
     res.render("store/favourite-list",{registeredHome:registeredHome,pageTitle:"Favourite",currentPage:"favourite"})
   })
 }
+exports.getHomeDetails=(req,res,next)=>{
+  const homeId=req.params.homeId;
+  console.log("At home details:",homeId)
+
+  Home.findById(homeId,home=>{
+    if(!home){
+      console.log("Home not found")
+      res.redirect("/Homes")
+    }else{
+      console.log("At home details:",home)
+      res.render("store/home-detail",{home:home,pageTitle:"Home Details",currentPage:"home-details"})
+    }
+  })
+}
