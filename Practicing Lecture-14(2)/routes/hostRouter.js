@@ -10,4 +10,5 @@ hostRouter.post("/add-home",hostController.getHomeAdd)
 
 hostRouter.get("/host-home-list",hostController.getHostHomeList)
 hostRouter.get("/edit-home/:homeId",hostController.getEditHome)
+hostRouter.post("/edit-home",hostController.postEditHome)
 exports.hostRouter=hostRouter

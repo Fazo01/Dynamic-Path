@@ -9,8 +9,7 @@ exports.getHomeAdd=(req,res,next)=>{
   const{houseName,price,location,rating,photoURL}=req.body
   const home=new Home(houseName,price,location,rating,photoURL)
   home.save()
-  registeredHome.push(req.body)
-  res.render("host/home-added",{pageTitle:"Home Add",currentPage:"addhome"})
+  res.redirect("/host/host-home-list")
 }
 exports.getHostHomeList=(req,res,next)=>{
   
@@ -31,5 +30,12 @@ exports.getEditHome=(req,res,next)=>{
     res.render("host/edit-home",{home:home,pageTitle:"Edit your Home",currentPage:"addhome",editing:editing})
 
   })
+}
+exports.postEditHome=(req,res,next)=>{
+  const{id,houseName,location,rating,price,photoURL}=req.body
+  const home=new Home(houseName,price,location,rating,photoURL)
+  home.id=id
+  home.save()
+  res.redirect("/host/host-home-list")
 }
 exports.registeredHome=registeredHome

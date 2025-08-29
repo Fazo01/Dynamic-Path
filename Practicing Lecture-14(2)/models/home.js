@@ -14,10 +14,13 @@ module.exports=class Home{
   }
 
   save(){
-    this.id=Math.random().toString()
     Home.fetchAll((registeredHome)=>{
-      
-      registeredHome.push(this)
+      if(this.id){
+        registeredHome=registeredHome.map(home=>home.id===this.id?this:home)
+      }else{
+        this.id=Math.random().toString()
+        registeredHome.push(this)
+      }
       fs.writeFile(filepath,JSON.stringify(registeredHome),(error)=>{
         console.log("File Writing Conclude: ",error)
       })
