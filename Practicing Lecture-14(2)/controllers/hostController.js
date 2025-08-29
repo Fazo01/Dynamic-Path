@@ -38,4 +38,15 @@ exports.postEditHome=(req,res,next)=>{
   home.save()
   res.redirect("/host/host-home-list")
 }
+
+exports.postDeleteHome=(req,res,next)=>{
+  const homeId=req.params.homeId
+  console.log("Came to delete home ID",homeId)
+  Home.deleteById(homeId,error=>{
+    if(error){
+      console.log("Error while deleting",error)
+    }
+    res.redirect("/host/host-home-list")
+  })
+}
 exports.registeredHome=registeredHome
