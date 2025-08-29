@@ -1,7 +1,7 @@
 const Home = require("../models/home")
 
 exports.getAddHome=(req,res,next)=>{
-  res.render("host/addHome",{pageTitle:"Add Home",currentPage:"addhome"})
+  res.render("host/edit-home",{pageTitle:"Add Home",currentPage:"addhome"})
 }
 const registeredHome=[]
 exports.getHomeAdd=(req,res,next)=>{
@@ -16,5 +16,11 @@ exports.getHostHomeList=(req,res,next)=>{
   Home.fetchAll((registeredHome)=>{
     res.render("host/host-home-list",{registeredHome:registeredHome,pageTitle:"Host Home List",currentPage:"hostHomeList"})
   })
+}
+exports.getEditHome=(req,res,next)=>{
+  const homeId=req.params.homeId
+  const editing=req.query.editing==='true'
+  console.log(homeId, editing)
+  res.render("host/edit-home",{pageTitle:"Edit your Home",currentPage:"addhome",editing:editing})
 }
 exports.registeredHome=registeredHome
